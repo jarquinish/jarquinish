@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ServicesSection } from "@/components/ServicesSection";
 import { InlineCTA } from "@/components/InlineCTA";
 import { FinalCTA } from "@/components/FinalCTA";
+import { brands, expertiseAreas, profile, teachingInstitutions } from "@/data/profile";
 
 export default function HomePage() {
   return (
@@ -10,22 +11,49 @@ export default function HomePage() {
       <section className="px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-6xl">
-            Miguel Jarquín
+            Miguel
+            <br />
+            <span className="text-accent">Jarquín</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">
-            Marketing, marca personal e inteligencia artificial aplicada a negocios reales.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">{profile.title}</p>
+          <p className="mx-auto mt-4 max-w-xl text-sm font-semibold uppercase tracking-wide text-ink/50">
+            {profile.tagline.join(" ")}
           </p>
         </div>
       </section>
 
       {/* Speaker */}
       <section id="speaker" className="border-t border-ink/10 px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Speaker</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-ink/70">
-            Conferencista sobre inteligencia artificial, marketing y construcción de marca para
-            empresas, asociaciones y eventos.
-          </p>
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-center text-2xl font-bold uppercase text-ink sm:text-4xl">
+            Sobre Miguel
+          </h2>
+
+          <blockquote className="mx-auto mt-8 max-w-2xl text-center text-xl font-medium text-ink sm:text-2xl">
+            “{profile.quote}”
+          </blockquote>
+
+          <ul className="mx-auto mt-8 max-w-2xl space-y-2 text-center text-sm text-ink/70">
+            {profile.education.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <div className="mt-12">
+            <p className="text-center text-xs font-semibold uppercase tracking-wide text-ink/50">
+              Docencia
+            </p>
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
+              {teachingInstitutions.map((institution) => (
+                <span
+                  key={institution}
+                  className="rounded-full border border-ink/15 px-4 py-1.5 text-sm text-ink/80"
+                >
+                  {institution}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       <InlineCTA
@@ -39,12 +67,12 @@ export default function HomePage() {
       {/* IA */}
       <section id="ia" className="px-6 py-20">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">
-            Inteligencia Artificial
-          </h2>
+          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Análisis de DATA</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-ink/70">{profile.dataStatement}</p>
           <p className="mx-auto mt-4 max-w-2xl text-ink/70">
-            Ayudo a empresas a identificar dónde la IA puede reducir trabajo manual, mejorar la
-            experiencia del cliente y generar nuevas oportunidades de negocio.
+            Aplico esa misma disciplina de datos para ayudar a empresas a identificar dónde la
+            inteligencia artificial puede reducir trabajo manual, mejorar la experiencia del
+            cliente y generar nuevas oportunidades de negocio.
           </p>
         </div>
       </section>
@@ -64,6 +92,16 @@ export default function HomePage() {
             Marketing, marca, ventas y tecnología, aplicados de forma práctica en talleres para
             equipos.
           </p>
+          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-3">
+            {expertiseAreas.map((area) => (
+              <span
+                key={area.name}
+                className="rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80"
+              >
+                {area.name}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
       <InlineCTA
@@ -79,10 +117,23 @@ export default function HomePage() {
       {/* Projects */}
       <section id="projects" className="px-6 py-20">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Proyectos</h2>
+          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">
+            Experiencia en marcas líderes
+          </h2>
           <p className="mx-auto mt-4 max-w-2xl text-ink/70">
-            Marcas, campañas e implementaciones en las que he trabajado.
+            Marcas y organizaciones con las que he trabajado en estrategia, posicionamiento y
+            comunicación.
           </p>
+          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
+            {brands.map((brand) => (
+              <span
+                key={brand}
+                className="rounded-full border border-ink/10 px-4 py-1.5 text-sm text-ink/70"
+              >
+                {brand}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
       <div className="border-y border-ink/10 bg-paper px-6 py-12 text-center sm:py-16">
