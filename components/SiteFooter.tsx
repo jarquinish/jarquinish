@@ -18,6 +18,9 @@ export function SiteFooter() {
           <Link href="/contacto" className="hover:text-ink">
             Contacto
           </Link>
+          <Link href="/aviso-de-privacidad" className="hover:text-ink">
+            Aviso de privacidad
+          </Link>
         </div>
       </div>
     </footer>

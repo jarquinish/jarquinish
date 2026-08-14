@@ -169,6 +169,17 @@ export function ConsultingWizard() {
           </div>
           <textarea name="mensaje" placeholder="Mensaje" rows={4} className={inputClass} />
 
+          <label className="flex items-start gap-2 text-xs text-ink/70">
+            <input type="checkbox" name="acceptaPrivacidad" required className="mt-0.5" />
+            <span>
+              Acepto el{" "}
+              <a href="/aviso-de-privacidad" target="_blank" className="underline">
+                aviso de privacidad
+              </a>{" "}
+              y el uso de mis datos para dar seguimiento a esta solicitud.
+            </span>
+          </label>
+
           {status === "error" && (
             <p className="text-sm text-red-600">No se pudo enviar el formulario. Intenta de nuevo.</p>
           )}
