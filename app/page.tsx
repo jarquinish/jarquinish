@@ -3,12 +3,30 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { InlineCTA } from "@/components/InlineCTA";
 import { FinalCTA } from "@/components/FinalCTA";
 import { brands, expertiseAreas, profile, teachingInstitutions } from "@/data/profile";
+import { CartIcon, ChartIcon, MegaphoneIcon, PeopleIcon, TargetIcon } from "@/components/icons";
+
+const EXPERTISE_ICONS: Record<string, typeof TargetIcon> = {
+  "Estrategia de marca": TargetIcon,
+  "Posicionamiento de marca": ChartIcon,
+  "E-commerce y retail": CartIcon,
+  "Marketing digital": MegaphoneIcon,
+  "Comunicación estratégica": PeopleIcon,
+};
 
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="px-6 py-24 sm:py-32">
+      <section className="relative overflow-hidden px-6 py-24 sm:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 15% 20%, rgba(255,90,31,0.14), transparent 45%), radial-gradient(circle at 85% 15%, rgba(11,11,12,0.06), transparent 40%), radial-gradient(circle 1.5px, rgba(11,11,12,0.14) 1.5px, transparent 1.5px)",
+            backgroundSize: "auto, auto, 28px 28px",
+          }}
+        />
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-6xl">
             Miguel
@@ -24,34 +42,36 @@ export default function HomePage() {
 
       {/* Speaker */}
       <section id="speaker" className="border-t border-ink/10 px-6 py-20">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-center text-2xl font-bold uppercase text-ink sm:text-4xl">
-            Sobre Miguel
-          </h2>
+        <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start">
+          <div className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-ink to-ink/70 text-3xl font-bold uppercase tracking-wide text-paper sm:mx-0">
+            MJ
+          </div>
 
-          <blockquote className="mx-auto mt-8 max-w-2xl text-center text-xl font-medium text-ink sm:text-2xl">
-            “{profile.quote}”
-          </blockquote>
+          <div>
+            <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Sobre Miguel</h2>
 
-          <ul className="mx-auto mt-8 max-w-2xl space-y-2 text-center text-sm text-ink/70">
-            {profile.education.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+            <blockquote className="mt-6 text-xl font-medium text-ink sm:text-2xl">
+              “{profile.quote}”
+            </blockquote>
 
-          <div className="mt-12">
-            <p className="text-center text-xs font-semibold uppercase tracking-wide text-ink/50">
-              Docencia
-            </p>
-            <div className="mt-3 flex flex-wrap justify-center gap-2">
-              {teachingInstitutions.map((institution) => (
-                <span
-                  key={institution}
-                  className="rounded-full border border-ink/15 px-4 py-1.5 text-sm text-ink/80"
-                >
-                  {institution}
-                </span>
+            <ul className="mt-6 space-y-2 text-sm text-ink/70">
+              {profile.education.map((item) => (
+                <li key={item}>{item}</li>
               ))}
+            </ul>
+
+            <div className="mt-10">
+              <p className="text-xs font-semibold uppercase tracking-wide text-ink/50">Docencia</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {teachingInstitutions.map((institution) => (
+                  <span
+                    key={institution}
+                    className="rounded-full border border-ink/15 px-4 py-1.5 text-sm text-ink/80"
+                  >
+                    {institution}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -93,14 +113,18 @@ export default function HomePage() {
             equipos.
           </p>
           <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-3">
-            {expertiseAreas.map((area) => (
-              <span
-                key={area.name}
-                className="rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80"
-              >
-                {area.name}
-              </span>
-            ))}
+            {expertiseAreas.map((area) => {
+              const Icon = EXPERTISE_ICONS[area.name];
+              return (
+                <span
+                  key={area.name}
+                  className="flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80"
+                >
+                  {Icon && <Icon className="h-4 w-4 text-accent" />}
+                  {area.name}
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>

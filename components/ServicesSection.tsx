@@ -1,10 +1,17 @@
 import { services, type ServiceId } from "@/data/services";
 import { ServiceCta } from "./ServiceCta";
+import { MicIcon, SparkleIcon, WorkshopIcon } from "./icons";
 
 const CTA_VARIANT_BY_SERVICE: Record<ServiceId, "charla" | "taller" | "consultoria"> = {
   charlas: "charla",
   talleres: "taller",
   "consultoria-ia": "consultoria",
+};
+
+const ICON_BY_SERVICE: Record<ServiceId, typeof MicIcon> = {
+  charlas: MicIcon,
+  talleres: WorkshopIcon,
+  "consultoria-ia": SparkleIcon,
 };
 
 export function ServicesSection() {
@@ -27,12 +34,17 @@ export function ServicesSection() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
-          {services.map((service) => (
+          {services.map((service) => {
+            const Icon = ICON_BY_SERVICE[service.id];
+            return (
             <article
               key={service.id}
               className="flex flex-col rounded-2xl border border-ink/10 bg-white p-8"
             >
-              <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+                <Icon />
+              </span>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-accent">
                 {service.eyebrow}
               </p>
               <h3 className="mt-4 text-2xl font-bold uppercase leading-tight text-ink">
@@ -66,7 +78,8 @@ export function ServicesSection() {
                 <p className="mt-3 text-xs text-ink/50">{service.microcopy}</p>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
