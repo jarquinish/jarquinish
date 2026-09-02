@@ -2,7 +2,15 @@ import Link from "next/link";
 import { ServicesSection } from "@/components/ServicesSection";
 import { InlineCTA } from "@/components/InlineCTA";
 import { FinalCTA } from "@/components/FinalCTA";
-import { brands, expertiseAreas, profile, teachingInstitutions } from "@/data/profile";
+import {
+  brands,
+  careerTimeline,
+  expertiseAreas,
+  profile,
+  successCases,
+  summaryStats,
+  teachingInstitutions,
+} from "@/data/profile";
 import { CartIcon, ChartIcon, MegaphoneIcon, PeopleIcon, TargetIcon } from "@/components/icons";
 
 const EXPERTISE_ICONS: Record<string, typeof TargetIcon> = {
@@ -37,6 +45,15 @@ export default function HomePage() {
           <p className="mx-auto mt-4 max-w-xl text-sm font-semibold uppercase tracking-wide text-ink/50">
             {profile.tagline.join(" ")}
           </p>
+
+          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
+            {summaryStats.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-3xl font-bold text-accent sm:text-4xl">{stat.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-wide text-ink/60">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -49,6 +66,8 @@ export default function HomePage() {
 
           <div>
             <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Sobre Miguel</h2>
+
+            <p className="mt-6 text-ink/70">{profile.summary}</p>
 
             <blockquote className="mt-6 text-xl font-medium text-ink sm:text-2xl">
               “{profile.quote}”
@@ -72,6 +91,23 @@ export default function HomePage() {
                   </span>
                 ))}
               </div>
+            </div>
+
+            <div className="mt-12">
+              <p className="text-xs font-semibold uppercase tracking-wide text-ink/50">
+                Trayectoria profesional
+              </p>
+              <ol className="mt-4 space-y-4 border-l-2 border-ink/10 pl-5">
+                {careerTimeline.map((step) => (
+                  <li key={step.period}>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      {step.period}
+                    </p>
+                    <p className="text-sm font-medium text-ink">{step.role}</p>
+                    <p className="text-sm text-ink/60">{step.org}</p>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </div>
@@ -140,26 +176,47 @@ export default function HomePage() {
 
       {/* Projects */}
       <section id="projects" className="px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">
-            Experiencia en marcas líderes
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-ink/70">
-            Marcas y organizaciones con las que he trabajado en estrategia, posicionamiento y
-            comunicación.
-          </p>
-          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
-            {brands.map((brand) => (
-              <span
-                key={brand}
-                className="rounded-full border border-ink/10 px-4 py-1.5 text-sm text-ink/70"
-              >
-                {brand}
-              </span>
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Casos de éxito</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-ink/70">
+              Proyectos e implementaciones que he liderado en estrategia, marca y tecnología.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {successCases.map((item) => (
+              <div key={item.name} className="rounded-2xl border border-ink/10 bg-white p-6">
+                <h3 className="font-bold uppercase text-ink">{item.name}</h3>
+                <p className="mt-2 text-sm text-ink/70">{item.description}</p>
+              </div>
             ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink/50">
+              Marcas y organizaciones con las que he colaborado
+            </p>
+            <div className="mx-auto mt-4 flex max-w-3xl flex-wrap justify-center gap-2">
+              {brands.map((brand) => (
+                <span
+                  key={brand}
+                  className="rounded-full border border-ink/10 px-4 py-1.5 text-sm text-ink/70"
+                >
+                  {brand}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+      <section className="border-t border-ink/10 px-6 py-16 text-center">
+        <p className="mx-auto max-w-2xl text-lg font-medium text-ink sm:text-xl">
+          “{profile.vision}”
+        </p>
+      </section>
+
       <div className="border-y border-ink/10 bg-paper px-6 py-12 text-center sm:py-16">
         <p className="mx-auto max-w-2xl text-xl font-medium text-ink sm:text-2xl">
           ¿Tienes un proyecto en mente?

@@ -9,6 +9,7 @@ import { ServiceCta } from "@/components/ServiceCta";
 import { ConsultingWizard } from "@/components/ConsultingWizard";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PageViewTracker } from "@/components/PageViewTracker";
+import { toolStack } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "Consultoría de Inteligencia Artificial",
@@ -113,6 +114,30 @@ export default function ConsultoriaIAPage() {
               <span key={solution} className="rounded-full border border-ink/10 px-4 py-2 text-sm text-ink/80">
                 {solution}
               </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Herramientas */}
+      <section className="border-t border-ink/10 bg-white px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-bold uppercase text-ink">Herramientas con las que trabajo</h2>
+          <p className="mt-2 text-sm text-ink/60">
+            El objetivo nunca es la herramienta en sí, sino el proceso que resuelve.
+          </p>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {toolStack.map((group) => (
+              <div key={group.group}>
+                <p className="text-xs font-semibold uppercase tracking-wide text-accent">{group.group}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span key={item} className="rounded-full border border-ink/10 px-3 py-1 text-sm text-ink/80">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

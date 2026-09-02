@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ServiceLeadForm } from "@/components/ServiceLeadForm";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -28,6 +29,23 @@ export default function ContactoPage() {
 
         <div className="mt-8 flex justify-center">
           <WhatsAppCTA source="general" />
+        </div>
+
+        <div className="mt-12 flex flex-col items-center gap-2 border-t border-ink/10 pt-8 text-center text-sm text-ink/60">
+          <p>O escríbeme directamente:</p>
+          <a href={`mailto:${profile.contact.email}`} className="font-medium text-ink hover:text-accent">
+            {profile.contact.email}
+          </a>
+          <p>{profile.contact.phone}</p>
+          <p>{profile.contact.location}</p>
+          <a
+            href={profile.contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-ink hover:text-accent"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </section>
