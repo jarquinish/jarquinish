@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ServicesSection } from "@/components/ServicesSection";
 import { InlineCTA } from "@/components/InlineCTA";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -72,6 +73,14 @@ export default function HomePage() {
             <blockquote className="mt-6 text-xl font-medium text-ink sm:text-2xl">
               “{profile.quote}”
             </blockquote>
+
+            <Image
+              src="/firma-miguel-jarquin.png"
+              alt="Firma de Miguel Jarquín"
+              width={964}
+              height={916}
+              className="mt-4 h-20 w-auto"
+            />
 
             <ul className="mt-6 space-y-2 text-sm text-ink/70">
               {profile.education.map((item) => (
