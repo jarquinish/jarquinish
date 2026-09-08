@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Reveal } from "@/components/motion/Reveal";
+import { ParallaxImage } from "@/components/motion/ParallaxImage";
 import { ServicesSection } from "@/components/ServicesSection";
 import { InlineCTA } from "@/components/InlineCTA";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -37,7 +39,7 @@ export default function HomePage() {
           }}
         />
         <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
-          <div className="text-center sm:text-left">
+          <Reveal className="text-center sm:text-left" y={20}>
             <h1 className="text-4xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-6xl">
               Miguel
               <br />
@@ -47,26 +49,30 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-sm text-sm font-semibold uppercase tracking-wide text-ink/50 sm:mx-0">
               {profile.tagline.join(" ")}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-3xl shadow-xl">
-            <Image
+          <Reveal
+            delay={0.15}
+            scale={0.96}
+            className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-3xl shadow-xl"
+          >
+            <ParallaxImage
               src="/miguel/miguel-jarquin-hero.jpg"
               alt="Miguel Jarquín"
-              fill
               priority
               sizes="(min-width: 640px) 384px, 90vw"
-              className="object-cover"
+              className="h-full w-full"
+              strength={30}
             />
-          </div>
+          </Reveal>
         </div>
 
         <div className="relative mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-6 text-center sm:grid-cols-4">
-          {summaryStats.map((stat) => (
-            <div key={stat.label}>
+          {summaryStats.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 0.08}>
               <p className="text-3xl font-bold text-accent sm:text-4xl">{stat.value}</p>
               <p className="mt-1 text-xs uppercase tracking-wide text-ink/60">{stat.label}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -74,7 +80,7 @@ export default function HomePage() {
       {/* Speaker */}
       <section id="speaker" className="border-t border-ink/10 px-6 py-20">
         <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start">
-          <div className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-full sm:mx-0">
+          <Reveal scale={0.85} className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-full sm:mx-0">
             <Image
               src="/miguel/miguel-jarquin-avatar.jpg"
               alt="Miguel Jarquín sonriendo"
@@ -82,9 +88,9 @@ export default function HomePage() {
               sizes="128px"
               className="object-cover"
             />
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={0.1}>
             <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Sobre Miguel</h2>
 
             <p className="mt-6 text-ink/70">{profile.summary}</p>
@@ -92,14 +98,6 @@ export default function HomePage() {
             <blockquote className="mt-6 text-xl font-medium text-ink sm:text-2xl">
               “{profile.quote}”
             </blockquote>
-
-            <Image
-              src="/firma-miguel-jarquin.png"
-              alt="Firma de Miguel Jarquín"
-              width={964}
-              height={916}
-              className="mt-4 h-20 w-auto"
-            />
 
             <ul className="mt-6 space-y-2 text-sm text-ink/70">
               {profile.education.map((item) => (
@@ -137,7 +135,7 @@ export default function HomePage() {
                 ))}
               </ol>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
       <InlineCTA
@@ -150,7 +148,7 @@ export default function HomePage() {
 
       {/* IA */}
       <section id="ia" className="px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
+        <Reveal className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Análisis de DATA</h2>
           <p className="mx-auto mt-4 max-w-2xl text-ink/70">{profile.dataStatement}</p>
           <p className="mx-auto mt-4 max-w-2xl text-ink/70">
@@ -158,7 +156,7 @@ export default function HomePage() {
             inteligencia artificial puede reducir trabajo manual, mejorar la experiencia del
             cliente y generar nuevas oportunidades de negocio.
           </p>
-        </div>
+        </Reveal>
       </section>
       <InlineCTA
         variant="consultoria"
@@ -170,27 +168,26 @@ export default function HomePage() {
 
       {/* Expertise */}
       <section id="expertise" className="px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
+        <Reveal className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Expertise</h2>
           <p className="mx-auto mt-4 max-w-2xl text-ink/70">
             Marketing, marca, ventas y tecnología, aplicados de forma práctica en talleres para
             equipos.
           </p>
           <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-3">
-            {expertiseAreas.map((area) => {
+            {expertiseAreas.map((area, i) => {
               const Icon = EXPERTISE_ICONS[area.name];
               return (
-                <span
-                  key={area.name}
-                  className="flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80"
-                >
-                  {Icon && <Icon className="h-4 w-4 text-accent" />}
-                  {area.name}
-                </span>
+                <Reveal key={area.name} delay={i * 0.06}>
+                  <span className="flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md">
+                    {Icon && <Icon className="h-4 w-4 text-accent" />}
+                    {area.name}
+                  </span>
+                </Reveal>
               );
             })}
           </div>
-        </div>
+        </Reveal>
       </section>
       <InlineCTA
         variant="taller"
@@ -205,23 +202,25 @@ export default function HomePage() {
       {/* Projects */}
       <section id="projects" className="px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <div className="text-center">
+          <Reveal className="text-center">
             <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Casos de éxito</h2>
             <p className="mx-auto mt-4 max-w-2xl text-ink/70">
               Proyectos e implementaciones que he liderado en estrategia, marca y tecnología.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {successCases.map((item) => (
-              <div key={item.name} className="rounded-2xl border border-ink/10 bg-white p-6">
-                <h3 className="font-bold uppercase text-ink">{item.name}</h3>
-                <p className="mt-2 text-sm text-ink/70">{item.description}</p>
-              </div>
+            {successCases.map((item, i) => (
+              <Reveal key={item.name} delay={i * 0.08} className="h-full">
+                <div className="h-full rounded-2xl border border-ink/10 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg">
+                  <h3 className="font-bold uppercase text-ink">{item.name}</h3>
+                  <p className="mt-2 text-sm text-ink/70">{item.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="mt-16 text-center">
+          <Reveal className="mt-16 text-center" delay={0.1}>
             <p className="text-xs font-semibold uppercase tracking-wide text-ink/50">
               Marcas y organizaciones con las que he colaborado
             </p>
@@ -235,28 +234,32 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="border-t border-ink/10 px-6 py-16 text-center">
-        <p className="mx-auto max-w-2xl text-lg font-medium text-ink sm:text-xl">
-          “{profile.vision}”
-        </p>
+        <Reveal>
+          <p className="mx-auto max-w-2xl text-lg font-medium text-ink sm:text-xl">
+            “{profile.vision}”
+          </p>
+        </Reveal>
       </section>
 
       <div className="border-y border-ink/10 bg-paper px-6 py-12 text-center sm:py-16">
-        <p className="mx-auto max-w-2xl text-xl font-medium text-ink sm:text-2xl">
-          ¿Tienes un proyecto en mente?
-        </p>
-        <div className="mt-6">
-          <Link
-            href="/contacto"
-            className="inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:bg-accent"
-          >
-            QUIERO TRABAJAR CONTIGO →
-          </Link>
-        </div>
+        <Reveal>
+          <p className="mx-auto max-w-2xl text-xl font-medium text-ink sm:text-2xl">
+            ¿Tienes un proyecto en mente?
+          </p>
+          <div className="mt-6">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:-translate-y-0.5 hover:bg-accent hover:shadow-lg"
+            >
+              QUIERO TRABAJAR CONTIGO →
+            </Link>
+          </div>
+        </Reveal>
       </div>
 
       <FinalCTA />

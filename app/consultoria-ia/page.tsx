@@ -10,6 +10,7 @@ import { ConsultingWizard } from "@/components/ConsultingWizard";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { toolStack } from "@/data/profile";
+import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Consultoría de Inteligencia Artificial",
@@ -24,7 +25,7 @@ export default function ConsultoriaIAPage() {
 
       {/* Hero */}
       <section className="px-6 py-20 sm:py-28">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-5xl">
             IA que resuelve
             <br />
@@ -43,21 +44,25 @@ export default function ConsultoriaIAPage() {
               placement="consultoria_hero"
             />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Enfoque */}
       <section className="border-t border-ink/10 bg-white px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold uppercase text-ink">Nuestro enfoque</h2>
+          <Reveal>
+            <h2 className="text-2xl font-bold uppercase text-ink">Nuestro enfoque</h2>
+          </Reveal>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             {consultingFlow.map((step, i) => (
-              <div key={step} className="flex items-center gap-3">
-                <span className="rounded-full border border-ink/15 px-4 py-2 text-xs font-semibold uppercase text-ink/80">
-                  {step}
-                </span>
-                {i < consultingFlow.length - 1 && <span className="text-ink/30">↓</span>}
-              </div>
+              <Reveal key={step} delay={i * 0.05}>
+                <div className="flex items-center gap-3">
+                  <span className="rounded-full border border-ink/15 px-4 py-2 text-xs font-semibold uppercase text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md">
+                    {step}
+                  </span>
+                  {i < consultingFlow.length - 1 && <span className="text-ink/30">↓</span>}
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -66,14 +71,18 @@ export default function ConsultoriaIAPage() {
       {/* Metodología */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-center text-2xl font-bold uppercase text-ink">Metodología</h2>
+          <Reveal>
+            <h2 className="text-center text-2xl font-bold uppercase text-ink">Metodología</h2>
+          </Reveal>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {consultingMethodology.map((step) => (
-              <div key={step.number} className="rounded-2xl border border-ink/10 bg-white p-6">
-                <span className="text-3xl font-bold text-accent">{step.number}</span>
-                <h3 className="mt-2 text-lg font-bold uppercase text-ink">{step.title}</h3>
-                <p className="mt-2 text-sm text-ink/70">{step.description}</p>
-              </div>
+            {consultingMethodology.map((step, i) => (
+              <Reveal key={step.number} delay={i * 0.08} className="h-full">
+                <div className="h-full rounded-2xl border border-ink/10 bg-white p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+                  <span className="text-3xl font-bold text-accent">{step.number}</span>
+                  <h3 className="mt-2 text-lg font-bold uppercase text-ink">{step.title}</h3>
+                  <p className="mt-2 text-sm text-ink/70">{step.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -82,20 +91,21 @@ export default function ConsultoriaIAPage() {
       {/* No implementamos IA por implementar IA */}
       <section className="border-t border-ink/10 bg-ink px-6 py-20 text-paper">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold uppercase leading-tight sm:text-4xl">
-            No implementamos IA
-            <br />
-            por implementar IA.
-          </h2>
-          <p className="mt-4 text-paper/70">Buscamos:</p>
+          <Reveal>
+            <h2 className="text-2xl font-bold uppercase leading-tight sm:text-4xl">
+              No implementamos IA
+              <br />
+              por implementar IA.
+            </h2>
+            <p className="mt-4 text-paper/70">Buscamos:</p>
+          </Reveal>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {consultingPrinciples.map((principle) => (
-              <span
-                key={principle}
-                className="rounded-full border border-paper/20 px-5 py-2 text-sm font-semibold uppercase"
-              >
-                {principle}
-              </span>
+            {consultingPrinciples.map((principle, i) => (
+              <Reveal key={principle} delay={i * 0.06}>
+                <span className="rounded-full border border-paper/20 px-5 py-2 text-sm font-semibold uppercase transition hover:-translate-y-0.5 hover:bg-paper/10">
+                  {principle}
+                </span>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -104,16 +114,20 @@ export default function ConsultoriaIAPage() {
       {/* Áreas y soluciones */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold uppercase text-ink">Ejemplos de soluciones</h2>
-          <p className="mt-2 text-sm text-ink/60">
-            Cada implementación se valida contra tu proceso y tus datos reales antes de
-            recomendarla.
-          </p>
+          <Reveal>
+            <h2 className="text-2xl font-bold uppercase text-ink">Ejemplos de soluciones</h2>
+            <p className="mt-2 text-sm text-ink/60">
+              Cada implementación se valida contra tu proceso y tus datos reales antes de
+              recomendarla.
+            </p>
+          </Reveal>
           <div className="mt-6 flex flex-wrap gap-2">
-            {consultingSolutions.map((solution) => (
-              <span key={solution} className="rounded-full border border-ink/10 px-4 py-2 text-sm text-ink/80">
-                {solution}
-              </span>
+            {consultingSolutions.map((solution, i) => (
+              <Reveal key={solution} delay={i * 0.03}>
+                <span className="rounded-full border border-ink/10 px-4 py-2 text-sm text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md">
+                  {solution}
+                </span>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -122,13 +136,15 @@ export default function ConsultoriaIAPage() {
       {/* Herramientas */}
       <section className="border-t border-ink/10 bg-white px-6 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold uppercase text-ink">Herramientas con las que trabajo</h2>
-          <p className="mt-2 text-sm text-ink/60">
-            El objetivo nunca es la herramienta en sí, sino el proceso que resuelve.
-          </p>
+          <Reveal>
+            <h2 className="text-2xl font-bold uppercase text-ink">Herramientas con las que trabajo</h2>
+            <p className="mt-2 text-sm text-ink/60">
+              El objetivo nunca es la herramienta en sí, sino el proceso que resuelve.
+            </p>
+          </Reveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {toolStack.map((group) => (
-              <div key={group.group}>
+            {toolStack.map((group, i) => (
+              <Reveal key={group.group} delay={i * 0.08}>
                 <p className="text-xs font-semibold uppercase tracking-wide text-accent">{group.group}</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {group.items.map((item) => (
@@ -137,7 +153,7 @@ export default function ConsultoriaIAPage() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -145,17 +161,17 @@ export default function ConsultoriaIAPage() {
 
       {/* Funnel de diagnóstico */}
       <section id="diagnostico" className="border-t border-ink/10 bg-white px-6 py-20">
-        <div className="mx-auto max-w-2xl">
+        <Reveal className="mx-auto max-w-2xl">
           <h2 className="text-center text-2xl font-bold uppercase text-ink sm:text-3xl">
             ¿Dónde podría ayudarte la IA?
           </h2>
           <div className="mt-8">
             <ConsultingWizard />
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <div className="border-t border-ink/10 px-6 py-16 text-center">
+      <Reveal className="border-t border-ink/10 px-6 py-16 text-center">
         <p className="text-lg text-ink/70">¿Prefieres platicarlo directamente?</p>
         <div className="mt-4 flex flex-wrap justify-center gap-4">
           <ServiceCta
@@ -167,7 +183,7 @@ export default function ConsultoriaIAPage() {
           />
           <WhatsAppCTA source="ia" />
         </div>
-      </div>
+      </Reveal>
     </>
   );
 }
