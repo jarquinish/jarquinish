@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { talleres } from "@/data/talleres";
 import { ServiceLeadForm } from "@/components/ServiceLeadForm";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -14,16 +15,29 @@ export default function TalleresPage() {
   return (
     <>
       <section className="px-6 py-20 sm:py-28">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-5xl">
-            Menos teoría.
-            <br />
-            Más hacer.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-ink/70">
-            Talleres prácticos para convertir conceptos de inteligencia artificial, marketing y
-            automatización en habilidades aplicables desde el primer día.
-          </p>
+        <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
+          <div className="text-center sm:text-left">
+            <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-5xl">
+              Menos teoría.
+              <br />
+              Más hacer.
+            </h1>
+            <p className="mx-auto mt-6 max-w-md text-ink/70 sm:mx-0">
+              Talleres prácticos para convertir conceptos de inteligencia artificial, marketing y
+              automatización en habilidades aplicables desde el primer día.
+            </p>
+          </div>
+
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src="/miguel/miguel-jarquin-trabajando.jpg"
+              alt="Miguel Jarquín trabajando en un taller"
+              fill
+              priority
+              sizes="(min-width: 640px) 384px, 90vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 

@@ -36,33 +36,52 @@ export default function HomePage() {
             backgroundSize: "auto, auto, 28px 28px",
           }}
         />
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-6xl">
-            Miguel
-            <br />
-            <span className="text-accent">Jarquín</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">{profile.title}</p>
-          <p className="mx-auto mt-4 max-w-xl text-sm font-semibold uppercase tracking-wide text-ink/50">
-            {profile.tagline.join(" ")}
-          </p>
-
-          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
-            {summaryStats.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-3xl font-bold text-accent sm:text-4xl">{stat.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-wide text-ink/60">{stat.label}</p>
-              </div>
-            ))}
+        <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
+          <div className="text-center sm:text-left">
+            <h1 className="text-4xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-6xl">
+              Miguel
+              <br />
+              <span className="text-accent">Jarquín</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-md text-lg text-ink/70 sm:mx-0">{profile.title}</p>
+            <p className="mx-auto mt-4 max-w-sm text-sm font-semibold uppercase tracking-wide text-ink/50 sm:mx-0">
+              {profile.tagline.join(" ")}
+            </p>
           </div>
+
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src="/miguel/miguel-jarquin-hero.jpg"
+              alt="Miguel Jarquín"
+              fill
+              priority
+              sizes="(min-width: 640px) 384px, 90vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="relative mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-6 text-center sm:grid-cols-4">
+          {summaryStats.map((stat) => (
+            <div key={stat.label}>
+              <p className="text-3xl font-bold text-accent sm:text-4xl">{stat.value}</p>
+              <p className="mt-1 text-xs uppercase tracking-wide text-ink/60">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Speaker */}
       <section id="speaker" className="border-t border-ink/10 px-6 py-20">
         <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start">
-          <div className="mx-auto flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-ink to-ink/70 text-3xl font-bold uppercase tracking-wide text-paper sm:mx-0">
-            MJ
+          <div className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-full sm:mx-0">
+            <Image
+              src="/miguel/miguel-jarquin-sonriendo.jpg"
+              alt="Miguel Jarquín sonriendo"
+              fill
+              sizes="128px"
+              className="object-cover"
+            />
           </div>
 
           <div>
