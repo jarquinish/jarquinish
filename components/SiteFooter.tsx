@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { SocialLinks } from "./SocialLinks";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-ink/10 px-6 py-12 pb-24 text-sm text-ink/60 md:pb-12">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} Miguel Jarquín</p>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap items-center gap-6">
           <Link href="/charlas" className="hover:text-ink">
             Charlas
           </Link>
@@ -22,6 +23,7 @@ export function SiteFooter() {
             Aviso de privacidad
           </Link>
         </div>
+        <SocialLinks className="flex items-center gap-4 text-ink/60" />
       </div>
     </footer>
   );

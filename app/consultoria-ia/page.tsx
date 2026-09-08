@@ -10,7 +10,8 @@ import { ConsultingWizard } from "@/components/ConsultingWizard";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { toolStack } from "@/data/profile";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
+import { ParallaxImage } from "@/components/motion/ParallaxImage";
 
 export const metadata: Metadata = {
   title: "Consultoría de Inteligencia Artificial",
@@ -25,26 +26,39 @@ export default function ConsultoriaIAPage() {
 
       {/* Hero */}
       <section className="px-6 py-20 sm:py-28">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-5xl">
-            IA que resuelve
-            <br />
-            problemas reales.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">
-            Te ayudo a identificar dónde la inteligencia artificial puede reducir trabajo manual,
-            aumentar productividad, mejorar la experiencia del cliente o generar nuevas
-            oportunidades de negocio.
-          </p>
-          <div className="mt-8">
-            <ServiceCta
-              variant="consultoria"
-              href="#diagnostico"
-              label="ANALICEMOS TU CASO →"
-              placement="consultoria_hero"
+        <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
+          <Reveal className="text-center sm:text-left">
+            <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-5xl">
+              IA que resuelve
+              <br />
+              problemas reales.
+            </h1>
+            <p className="mx-auto mt-6 max-w-md text-lg text-ink/70 sm:mx-0">
+              Te ayudo a identificar dónde la inteligencia artificial puede reducir trabajo
+              manual, aumentar productividad, mejorar la experiencia del cliente o generar nuevas
+              oportunidades de negocio.
+            </p>
+            <div className="mt-8">
+              <ServiceCta
+                variant="consultoria"
+                href="#diagnostico"
+                label="ANALICEMOS TU CASO →"
+                placement="consultoria_hero"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15} scale={0.96} className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-3xl shadow-xl">
+            <ParallaxImage
+              src="/stock/ia-robot-dalle.jpg"
+              alt="Ilustración de inteligencia artificial"
+              sizes="(min-width: 640px) 384px, 90vw"
+              className="h-full w-full"
+              strength={25}
             />
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
+        <p className="mt-2 text-center text-xs text-ink/40">Ilustración generada con IA (DALL·E)</p>
       </section>
 
       {/* Enfoque */}

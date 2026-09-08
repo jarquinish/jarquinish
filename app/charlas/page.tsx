@@ -86,7 +86,7 @@ export default function CharlasPage() {
 
       {/* Formatos */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
           <Reveal>
             <h2 className="text-2xl font-bold uppercase text-ink">Formatos</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -97,7 +97,18 @@ export default function CharlasPage() {
               ))}
             </ul>
           </Reveal>
+
+          <Reveal delay={0.15} scale={0.96} className="relative mx-auto aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
+            <ParallaxImage
+              src="/stock/ecommerce-marketing.jpg"
+              alt="Marketing digital y comercio electrónico"
+              sizes="(min-width: 640px) 500px, 90vw"
+              className="h-full w-full"
+              strength={25}
+            />
+          </Reveal>
         </div>
+        <p className="mt-2 text-center text-xs text-ink/40">Imagen de stock</p>
       </section>
 
       {/* Experiencia como speaker / eventos */}

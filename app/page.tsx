@@ -148,15 +148,28 @@ export default function HomePage() {
 
       {/* IA */}
       <section id="ia" className="px-6 py-20">
-        <Reveal className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Análisis de DATA</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-ink/70">{profile.dataStatement}</p>
-          <p className="mx-auto mt-4 max-w-2xl text-ink/70">
-            Aplico esa misma disciplina de datos para ayudar a empresas a identificar dónde la
-            inteligencia artificial puede reducir trabajo manual, mejorar la experiencia del
-            cliente y generar nuevas oportunidades de negocio.
-          </p>
-        </Reveal>
+        <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
+          <Reveal delay={0.15} scale={0.96} className="relative order-first mx-auto aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl sm:order-last">
+            <ParallaxImage
+              src="/stock/ia-data-abstracta.jpg"
+              alt="Representación abstracta de datos e inteligencia artificial"
+              sizes="(min-width: 640px) 500px, 90vw"
+              className="h-full w-full"
+              strength={25}
+            />
+          </Reveal>
+
+          <Reveal className="text-center sm:text-left">
+            <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Análisis de DATA</h2>
+            <p className="mt-4 text-ink/70">{profile.dataStatement}</p>
+            <p className="mt-4 text-ink/70">
+              Aplico esa misma disciplina de datos para ayudar a empresas a identificar dónde la
+              inteligencia artificial puede reducir trabajo manual, mejorar la experiencia del
+              cliente y generar nuevas oportunidades de negocio.
+            </p>
+          </Reveal>
+        </div>
+        <p className="mt-2 text-center text-xs text-ink/40">Imagen generada con IA (Midjourney)</p>
       </section>
       <InlineCTA
         variant="consultoria"
@@ -168,26 +181,39 @@ export default function HomePage() {
 
       {/* Expertise */}
       <section id="expertise" className="px-6 py-20">
-        <Reveal className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Expertise</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-ink/70">
-            Marketing, marca, ventas y tecnología, aplicados de forma práctica en talleres para
-            equipos.
-          </p>
-          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-3">
-            {expertiseAreas.map((area, i) => {
-              const Icon = EXPERTISE_ICONS[area.name];
-              return (
-                <Reveal key={area.name} delay={i * 0.06}>
-                  <span className="flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md">
-                    {Icon && <Icon className="h-4 w-4 text-accent" />}
-                    {area.name}
-                  </span>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Reveal>
+        <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
+          <Reveal className="text-center sm:text-left">
+            <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Expertise</h2>
+            <p className="mt-4 text-ink/70">
+              Marketing, marca, ventas y tecnología, aplicados de forma práctica en talleres para
+              equipos.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start">
+              {expertiseAreas.map((area, i) => {
+                const Icon = EXPERTISE_ICONS[area.name];
+                return (
+                  <Reveal key={area.name} delay={i * 0.06}>
+                    <span className="flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md">
+                      {Icon && <Icon className="h-4 w-4 text-accent" />}
+                      {area.name}
+                    </span>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15} scale={0.96} className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl">
+            <ParallaxImage
+              src="/stock/marketing-strategy.jpg"
+              alt="Diagrama de estrategia de marketing"
+              sizes="(min-width: 640px) 500px, 90vw"
+              className="h-full w-full"
+              strength={25}
+            />
+          </Reveal>
+        </div>
+        <p className="mt-2 text-center text-xs text-ink/40">Imagen de stock</p>
       </section>
       <InlineCTA
         variant="taller"

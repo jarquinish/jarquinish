@@ -20,7 +20,8 @@ export const profile = {
     email: "mjarquin@socasesores.com.mx",
     phone: "(55) 3242 1257",
     location: "Ciudad de México, México",
-    linkedin: "https://linkedin.com/in/miguel-jarquin",
+    linkedin: "https://www.linkedin.com/in/miguel-jarqu%C3%ADn/",
+    tiktok: "https://www.tiktok.com/@aijarquin",
   },
 };
 
