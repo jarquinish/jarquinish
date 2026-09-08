@@ -26,9 +26,9 @@ export const profile = {
 
 export const summaryStats = [
   { value: "+15", label: "años de experiencia" },
-  { value: "+700", label: "oficinas en México" },
-  { value: "+2,000", label: "asesores en la red" },
-  { value: "5", label: "líneas de negocio" },
+  { value: "+30", label: "proyectos estratégicos" },
+  { value: "+100", label: "campañas nacionales" },
+  { value: "+50", label: "eventos y conferencias" },
 ];
 
 export const careerTimeline = [

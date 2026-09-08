@@ -76,7 +76,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start">
           <div className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-full sm:mx-0">
             <Image
-              src="/miguel/miguel-jarquin-sonriendo.jpg"
+              src="/miguel/miguel-jarquin-avatar.jpg"
               alt="Miguel Jarquín sonriendo"
               fill
               sizes="128px"
