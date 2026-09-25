@@ -26,7 +26,7 @@ export function ServiceCta({ variant, href, label, placement, className }: Props
       onClick={() => trackEvent(EVENT_BY_VARIANT[variant], { placement })}
       className={
         className ??
-        "inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:bg-accent"
+        "inline-flex items-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:opacity-90"
       }
     >
       {label}

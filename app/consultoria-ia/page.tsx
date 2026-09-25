@@ -62,7 +62,7 @@ export default function ConsultoriaIAPage() {
       </section>
 
       {/* Enfoque */}
-      <section className="border-t border-ink/10 bg-white px-6 py-16">
+      <section className="border-t border-ink/10 bg-surface px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <h2 className="text-2xl font-bold uppercase text-ink">Nuestro enfoque</h2>
@@ -91,7 +91,7 @@ export default function ConsultoriaIAPage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {consultingMethodology.map((step, i) => (
               <Reveal key={step.number} delay={i * 0.08} className="h-full">
-                <div className="h-full rounded-2xl border border-ink/10 bg-white p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+                <div className="h-full rounded-2xl border border-ink/10 bg-surface p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl">
                   <span className="text-3xl font-bold text-accent">{step.number}</span>
                   <h3 className="mt-2 text-lg font-bold uppercase text-ink">{step.title}</h3>
                   <p className="mt-2 text-sm text-ink/70">{step.description}</p>
@@ -148,7 +148,7 @@ export default function ConsultoriaIAPage() {
       </section>
 
       {/* Herramientas */}
-      <section className="border-t border-ink/10 bg-white px-6 py-16">
+      <section className="border-t border-ink/10 bg-surface px-6 py-16">
         <div className="mx-auto max-w-4xl">
           <Reveal>
             <h2 className="text-2xl font-bold uppercase text-ink">Herramientas con las que trabajo</h2>
@@ -174,7 +174,7 @@ export default function ConsultoriaIAPage() {
       </section>
 
       {/* Funnel de diagnóstico */}
-      <section id="diagnostico" className="border-t border-ink/10 bg-white px-6 py-20">
+      <section id="diagnostico" className="border-t border-ink/10 bg-surface px-6 py-20">
         <Reveal className="mx-auto max-w-2xl">
           <h2 className="text-center text-2xl font-bold uppercase text-ink sm:text-3xl">
             ¿Dónde podría ayudarte la IA?
@@ -193,7 +193,7 @@ export default function ConsultoriaIAPage() {
             href="/contacto"
             label="CUÉNTAME QUÉ QUIERES AUTOMATIZAR →"
             placement="consultoria_bottom"
-            className="inline-flex items-center gap-2 rounded-lg border border-ink/20 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-accent hover:text-accent"
+            className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-gold hover:text-gold"
           />
           <WhatsAppCTA source="ia" />
         </div>

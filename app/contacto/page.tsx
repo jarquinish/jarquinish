@@ -42,7 +42,7 @@ export default function ContactoPage() {
 
       <section className="px-6 pb-20 sm:pb-28">
         <Reveal className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-ink/10 bg-white p-6 sm:p-10">
+          <div className="rounded-2xl border border-ink/10 bg-surface p-6 sm:p-10">
             <ServiceLeadForm source="contacto_page" />
           </div>
 
@@ -52,7 +52,7 @@ export default function ContactoPage() {
 
           <div className="mt-12 flex flex-col items-center gap-2 border-t border-ink/10 pt-8 text-center text-sm text-ink/60">
             <p>O escríbeme directamente:</p>
-            <a href={`mailto:${profile.contact.email}`} className="font-medium text-ink hover:text-accent">
+            <a href={`mailto:${profile.contact.email}`} className="font-medium text-ink hover:text-gold">
               {profile.contact.email}
             </a>
             <p>{profile.contact.phone}</p>

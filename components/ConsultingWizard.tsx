@@ -106,7 +106,7 @@ export function ConsultingWizard() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-ink/10 bg-white p-10 text-center">
+      <div className="rounded-2xl border border-ink/10 bg-surface p-10 text-center">
         <p className="text-lg font-medium text-ink">
           Gracias. Revisaré tu caso para identificar dónde puede tener mayor impacto una
           implementación de IA.
@@ -116,7 +116,7 @@ export function ConsultingWizard() {
   }
 
   return (
-    <div className="rounded-2xl border border-ink/10 bg-white p-6 sm:p-10">
+    <div className="rounded-2xl border border-ink/10 bg-surface p-6 sm:p-10">
       <div className="mb-8 flex items-center gap-2">
         {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
           <div
@@ -181,7 +181,7 @@ export function ConsultingWizard() {
           </label>
 
           {status === "error" && (
-            <p className="text-sm text-red-600">No se pudo enviar el formulario. Intenta de nuevo.</p>
+            <p className="text-sm text-red-400">No se pudo enviar el formulario. Intenta de nuevo.</p>
           )}
 
           <div className="flex flex-wrap items-center gap-4">
@@ -195,7 +195,7 @@ export function ConsultingWizard() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="rounded-lg bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:bg-accent disabled:opacity-60"
+              className="rounded-full bg-gold px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:opacity-90 disabled:opacity-60"
             >
               {status === "submitting" ? "Enviando..." : "QUIERO MI DIAGNÓSTICO →"}
             </button>
@@ -206,7 +206,7 @@ export function ConsultingWizard() {
   );
 }
 
-const inputClass = "w-full rounded-lg border border-ink/20 bg-white px-4 py-3 text-ink";
+const inputClass = "w-full rounded-lg border border-ink/20 bg-surface px-4 py-3 text-ink";
 
 function WizardStep({
   question,

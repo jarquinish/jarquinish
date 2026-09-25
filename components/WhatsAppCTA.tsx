@@ -29,7 +29,7 @@ export function WhatsAppCTA({ source, label, className }: Props) {
       onClick={() => trackEvent("whatsapp_click", { source })}
       className={
         className ??
-        "inline-flex items-center gap-2 rounded-lg border border-ink/20 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-accent hover:text-accent"
+        "inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:border-gold hover:text-gold"
       }
     >
       {label ?? DEFAULT_LABELS[source]}

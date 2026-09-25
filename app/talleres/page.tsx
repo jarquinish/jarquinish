@@ -53,7 +53,7 @@ export default function TalleresPage() {
               <Reveal key={taller.slug} delay={i * 0.08} className="h-full">
                 <Link
                   href={`/talleres/${taller.slug}`}
-                  className="flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-6 transition duration-300 hover:-translate-y-1.5 hover:border-accent hover:shadow-xl"
+                  className="flex h-full flex-col rounded-2xl border border-ink/10 bg-surface p-6 transition duration-300 hover:-translate-y-1.5 hover:border-accent hover:shadow-xl"
                 >
                   <h3 className="text-lg font-bold text-ink">{taller.nombre}</h3>
                   <p className="mt-2 text-sm text-ink/70">{taller.objetivo}</p>
@@ -81,7 +81,7 @@ export default function TalleresPage() {
         </div>
       </section>
 
-      <section id="cotizar" className="border-t border-ink/10 bg-white px-6 py-20">
+      <section id="cotizar" className="border-t border-ink/10 bg-surface px-6 py-20">
         <Reveal className="mx-auto max-w-2xl">
           <h2 className="text-center text-2xl font-bold uppercase text-ink">Cotiza un taller</h2>
           <p className="mt-2 text-center text-ink/60">

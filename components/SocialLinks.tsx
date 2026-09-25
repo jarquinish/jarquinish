@@ -22,7 +22,7 @@ export function SocialLinks({ className, iconClassName = "h-5 w-5" }: Props) {
           rel="noopener noreferrer"
           aria-label="Hablemos por WhatsApp"
           onClick={() => trackEvent("whatsapp_click", { source: "social_links" })}
-          className="transition hover:text-accent"
+          className="transition hover:text-gold"
         >
           <WhatsAppIcon className={iconClassName} />
         </a>
@@ -32,7 +32,7 @@ export function SocialLinks({ className, iconClassName = "h-5 w-5" }: Props) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn de Miguel Jarquín"
-        className="transition hover:text-accent"
+        className="transition hover:text-gold"
       >
         <LinkedInIcon className={iconClassName} />
       </a>
@@ -41,7 +41,7 @@ export function SocialLinks({ className, iconClassName = "h-5 w-5" }: Props) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="TikTok de Miguel Jarquín"
-        className="transition hover:text-accent"
+        className="transition hover:text-gold"
       >
         <TikTokIcon className={iconClassName} />
       </a>
