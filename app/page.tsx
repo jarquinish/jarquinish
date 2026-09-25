@@ -231,7 +231,8 @@ export default function HomePage() {
           <Reveal className="text-center">
             <h2 className="text-2xl font-bold uppercase text-ink sm:text-4xl">Casos de éxito</h2>
             <p className="mx-auto mt-4 max-w-2xl text-ink/70">
-              Proyectos e implementaciones que he liderado en estrategia, marca y tecnología.
+              Proyectos e implementaciones que he liderado a lo largo de mi carrera, en
+              estrategia, marca y tecnología.
             </p>
           </Reveal>
 

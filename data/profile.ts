@@ -42,6 +42,18 @@ export const careerTimeline = [
 
 export const successCases = [
   {
+    name: "Nike México",
+    description: "Dirección de marketing y comunicación digital para una de las marcas deportivas más grandes del mundo.",
+  },
+  {
+    name: "UNAM — Comunicación Digital",
+    description: "Fundé desde cero el primer Departamento de Comunicación Digital de la UNAM, construyendo su presencia institucional digital.",
+  },
+  {
+    name: "Notimex",
+    description: "Lideré la comunicación digital de la agencia de noticias del Estado mexicano en un momento clave de transformación digital.",
+  },
+  {
     name: "Aula SOC Experience",
     description: "Concepto y estrategia para atracción y expansión de franquicias. Modelo de experiencia diferencial para prospectos.",
   },
@@ -50,20 +62,8 @@ export const successCases = [
     description: "Evolución del CRM hacia una plataforma inteligente, centrada en el usuario y en la productividad comercial.",
   },
   {
-    name: "SOC TV",
-    description: "Plataforma de comunicación estratégica que posiciona a la marca, educa y conecta con la red y sus clientes.",
-  },
-  {
-    name: "Employer Branding",
-    description: "Estrategias para atraer, desarrollar y fidelizar talento de alto desempeño.",
-  },
-  {
     name: "IA aplicada al Marketing",
     description: "Integración de Inteligencia Artificial en procesos de marketing, contenido, análisis y automatización.",
-  },
-  {
-    name: "SOC Store",
-    description: "Fortalecimiento de la tienda física y digital como canal estratégico de marca y experiencia.",
   },
 ];
 
