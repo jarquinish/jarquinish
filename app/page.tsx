@@ -34,7 +34,7 @@ export default function HomePage() {
           className="pointer-events-none absolute inset-0 -z-10"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 15% 20%, rgba(255,90,31,0.14), transparent 45%), radial-gradient(circle at 85% 15%, rgba(11,11,12,0.06), transparent 40%), radial-gradient(circle 1.5px, rgba(11,11,12,0.14) 1.5px, transparent 1.5px)",
+              "radial-gradient(circle at 15% 20%, rgba(200,100,74,0.20), transparent 45%), radial-gradient(circle at 85% 15%, rgba(65,105,225,0.12), transparent 40%), radial-gradient(circle 1.5px, rgba(242,235,221,0.10) 1.5px, transparent 1.5px)",
             backgroundSize: "auto, auto, 28px 28px",
           }}
         />
@@ -193,7 +193,7 @@ export default function HomePage() {
                 const Icon = EXPERTISE_ICONS[area.name];
                 return (
                   <Reveal key={area.name} delay={i * 0.06}>
-                    <span className="flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md">
+                    <span className="flex items-center gap-2 rounded-full border border-ink/15 bg-surface px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md">
                       {Icon && <Icon className="h-4 w-4 text-accent" />}
                       {area.name}
                     </span>
@@ -239,7 +239,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {successCases.map((item, i) => (
               <Reveal key={item.name} delay={i * 0.08} className="h-full">
-                <div className="h-full rounded-2xl border border-ink/10 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg">
+                <div className="h-full rounded-2xl border border-ink/10 bg-surface p-6 transition hover:-translate-y-1 hover:shadow-lg">
                   <h3 className="font-bold uppercase text-ink">{item.name}</h3>
                   <p className="mt-2 text-sm text-ink/70">{item.description}</p>
                 </div>
@@ -281,7 +281,7 @@ export default function HomePage() {
           <div className="mt-6">
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:-translate-y-0.5 hover:bg-accent hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent2 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:-translate-y-0.5 hover:opacity-90 hover:shadow-lg"
             >
               QUIERO TRABAJAR CONTIGO →
             </Link>
