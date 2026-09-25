@@ -19,7 +19,7 @@ export function StickyCTA() {
       {/* Desktop: discreet floating button + panel */}
       <div className="fixed bottom-6 right-6 z-40 hidden md:block">
         {open && (
-          <div className="mb-3 w-64 rounded-xl border border-ink/10 bg-surface p-2 shadow-xl">
+          <div className="mb-3 w-64 rounded-xl border border-ink/10 bg-white p-2 shadow-xl">
             {PANEL_OPTIONS.map((option) => (
               <Link
                 key={option.href}
@@ -38,7 +38,7 @@ export function StickyCTA() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="rounded-full bg-accent2 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-ink shadow-lg transition hover:opacity-90"
+          className="rounded-full bg-ink px-5 py-3 text-xs font-semibold uppercase tracking-wide text-paper shadow-lg transition hover:bg-accent"
         >
           {open ? "Cerrar" : "Trabajemos juntos"}
         </button>
@@ -48,7 +48,7 @@ export function StickyCTA() {
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-paper/95 p-3 backdrop-blur md:hidden">
         <Link
           href="/contacto"
-          className="block w-full rounded-lg bg-accent2 py-3 text-center text-sm font-semibold uppercase tracking-wide text-ink"
+          className="block w-full rounded-lg bg-ink py-3 text-center text-sm font-semibold uppercase tracking-wide text-paper"
         >
           HABLEMOS →
         </Link>

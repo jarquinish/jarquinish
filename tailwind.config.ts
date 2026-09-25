@@ -9,15 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // "Mago de Medianoche" — paleta de marca personal de Miguel
-        ink: "#F2EBDD", // Marfil — texto principal / superficies claras
-        paper: "#17233D", // Azul Tinta — fondo principal
-        deep: "#0D1526", // Fondo oscuro — hero y secciones profundas
-        surface: "#1F2D4A", // Secciones — tarjetas y paneles sobre el fondo
-        accent: "#C8644A", // Terracota — acento de texto/íconos, legible sobre fondo oscuro
-        accent2: "#702E3E", // Borgoña — relleno sólido de botones (con texto marfil)
-        electric: "#4169E1", // Azul Eléctrico — interacción / hover
-        graphite: "#28282A", // Grafito — superficie alterna
+        ink: "#0b0b0c",
+        paper: "#faf9f7",
+        accent: "#ff5a1f",
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],

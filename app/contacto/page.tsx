@@ -42,7 +42,7 @@ export default function ContactoPage() {
 
       <section className="px-6 pb-20 sm:pb-28">
         <Reveal className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-ink/10 bg-surface p-6 sm:p-10">
+          <div className="rounded-2xl border border-ink/10 bg-white p-6 sm:p-10">
             <ServiceLeadForm source="contacto_page" />
           </div>
 

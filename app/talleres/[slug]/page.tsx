@@ -36,7 +36,7 @@ export default function TallerDetailPage({ params }: Props) {
           </h1>
           <p className="mt-4 text-lg text-ink/70">{taller.objetivo}</p>
 
-          <dl className="mt-8 grid gap-4 rounded-2xl border border-ink/10 bg-surface p-6 sm:grid-cols-2">
+          <dl className="mt-8 grid gap-4 rounded-2xl border border-ink/10 bg-white p-6 sm:grid-cols-2">
             <div>
               <dt className="text-xs font-semibold uppercase text-ink/50">Duración</dt>
               <dd className="mt-1 text-ink">{taller.duracion}</dd>
@@ -65,7 +65,7 @@ export default function TallerDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-t border-ink/10 bg-surface px-6 py-20">
+      <section className="border-t border-ink/10 bg-white px-6 py-20">
         <div className="mx-auto max-w-2xl">
           <h2 className="text-center text-2xl font-bold uppercase text-ink">Cotiza este taller</h2>
           <div className="mt-8">

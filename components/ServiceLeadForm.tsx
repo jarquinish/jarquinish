@@ -96,7 +96,7 @@ export function ServiceLeadForm({
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-ink/10 bg-surface p-8 text-center">
+      <div className="rounded-2xl border border-ink/10 bg-white p-8 text-center">
         <p className="text-lg font-medium text-ink">
           Gracias. Revisaré tu información y te responderé lo antes posible.
         </p>
@@ -115,7 +115,7 @@ export function ServiceLeadForm({
           disabled={lockLeadType}
           value={leadType}
           onChange={(e: ChangeEvent<HTMLSelectElement>) => setLeadType(e.target.value as LeadType)}
-          className="w-full rounded-lg border border-ink/20 bg-surface px-4 py-3 text-ink disabled:opacity-70"
+          className="w-full rounded-lg border border-ink/20 bg-white px-4 py-3 text-ink disabled:opacity-70"
         >
           <option value="" disabled>
             Selecciona una opción
@@ -192,7 +192,7 @@ export function ServiceLeadForm({
       <button
         type="submit"
         disabled={status === "submitting" || !leadType}
-        className="w-full rounded-lg bg-accent2 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-ink transition hover:opacity-90 disabled:opacity-60 sm:w-auto"
+        className="w-full rounded-lg bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:bg-accent disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Enviando..." : "SOLICITAR INFORMACIÓN →"}
       </button>
@@ -200,7 +200,7 @@ export function ServiceLeadForm({
   );
 }
 
-const inputClass = "w-full rounded-lg border border-ink/20 bg-surface px-4 py-3 text-ink";
+const inputClass = "w-full rounded-lg border border-ink/20 bg-white px-4 py-3 text-ink";
 
 function Field({
   label,

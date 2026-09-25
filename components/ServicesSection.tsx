@@ -39,7 +39,7 @@ export function ServicesSection() {
             const Icon = ICON_BY_SERVICE[service.id];
             return (
               <Reveal key={service.id} delay={i * 0.12} className="h-full">
-                <article className="flex h-full flex-col rounded-2xl border border-ink/10 bg-surface p-8 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+                <article className="flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-8 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl">
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
                     <Icon />
                   </span>
@@ -72,7 +72,7 @@ export function ServicesSection() {
                       href={service.ctaHref}
                       label={service.ctaLabel}
                       placement="services_section"
-                      className="inline-flex items-center gap-2 rounded-lg bg-accent2 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-ink transition hover:opacity-90"
+                      className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-xs font-semibold uppercase tracking-wide text-paper transition hover:bg-accent"
                     />
                     <p className="mt-3 text-xs text-ink/50">{service.microcopy}</p>
                   </div>

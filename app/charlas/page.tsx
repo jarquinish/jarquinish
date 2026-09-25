@@ -36,9 +36,9 @@ export default function CharlasPage() {
           className="absolute inset-0"
           strength={40}
         />
-        <div aria-hidden className="absolute inset-0 bg-paper/75" />
+        <div aria-hidden className="absolute inset-0 bg-ink/75" />
         <Reveal className="relative mx-auto max-w-4xl text-center">
-          <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-5xl">
+          <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-paper sm:text-5xl">
             Charlas para entender
             <br />
             lo que viene
@@ -58,7 +58,7 @@ export default function CharlasPage() {
               {charlasTemas.map((tema) => (
                 <li
                   key={tema}
-                  className="rounded-lg border border-ink/10 bg-surface px-4 py-3 text-sm text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md"
+                  className="rounded-lg border border-ink/10 bg-white px-4 py-3 text-sm text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md"
                 >
                   {tema}
                 </li>
@@ -91,7 +91,7 @@ export default function CharlasPage() {
             <h2 className="text-2xl font-bold uppercase text-ink">Formatos</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {charlasFormatos.map((formato) => (
-                <li key={formato} className="rounded-lg border border-ink/10 bg-surface px-4 py-3 text-sm text-ink/80">
+                <li key={formato} className="rounded-lg border border-ink/10 bg-white px-4 py-3 text-sm text-ink/80">
                   {formato}
                 </li>
               ))}
@@ -159,7 +159,7 @@ export default function CharlasPage() {
       </section>
 
       {/* CTA contratación */}
-      <section id="contratar" className="border-t border-ink/10 bg-surface px-6 py-20">
+      <section id="contratar" className="border-t border-ink/10 bg-white px-6 py-20">
         <Reveal className="mx-auto max-w-2xl">
           <h2 className="text-center text-2xl font-bold uppercase text-ink">Contrata una charla</h2>
           <p className="mt-2 text-center text-ink/60">
