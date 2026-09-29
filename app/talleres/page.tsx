@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { talleres } from "@/data/talleres";
 import { ServiceLeadForm } from "@/components/ServiceLeadForm";
@@ -44,6 +45,25 @@ export default function TalleresPage() {
             />
           </Reveal>
         </div>
+      </section>
+
+      {/* Alcance nacional */}
+      <section className="border-t border-ink/10 px-6 py-16">
+        <Reveal className="mx-auto max-w-6xl" scale={0.98}>
+          <div className="overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src="/miguel/ia-jarquin-mexico.jpg"
+              alt="Mapa de México con 25 ciudades donde Miguel Jarquín ha impartido talleres, charlas y conferencias de marketing e inteligencia artificial"
+              width={1536}
+              height={1024}
+              sizes="(min-width: 1280px) 1152px, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
+          <p className="mt-3 text-center text-xs text-ink/40">
+            +25 ciudades recorridas con talleres, charlas y consultoría de IA
+          </p>
+        </Reveal>
       </section>
 
       <section className="border-t border-ink/10 px-6 py-16">
