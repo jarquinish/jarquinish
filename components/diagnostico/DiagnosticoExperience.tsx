@@ -5,19 +5,21 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   QUESTIONS,
   buildDiagnosticoResult,
+  classifyTareaRemote,
   DIMENSION_LABELS,
   DIMENSION_DESCRIPTIONS,
   type Answers,
   type Dimension,
   type DiagnosticoResult,
   type Question,
+  type TaskClassification,
 } from "@/lib/diagnostico";
 import type { LeadRequirements } from "@/lib/leads";
 import { ProgressRing } from "./ProgressRing";
 import { trackEvent } from "@/lib/analytics";
 import { captureUtmContext } from "@/lib/utm";
 
-type Phase = "intro" | "question" | "interstitial" | "result";
+type Phase = "intro" | "question" | "interstitial" | "loading" | "result";
 
 const fadeVariants = {
   initial: { opacity: 0, y: 18 },
@@ -32,6 +34,7 @@ export function DiagnosticoExperience() {
   const [interstitialText, setInterstitialText] = useState("");
   const [result, setResult] = useState<DiagnosticoResult | null>(null);
   const formRef = useRef<HTMLDivElement>(null);
+  const classificationPromiseRef = useRef<Promise<TaskClassification> | null>(null);
 
   const totalSteps = QUESTIONS.length;
   const question = QUESTIONS[stepIndex];
@@ -41,18 +44,28 @@ export function DiagnosticoExperience() {
     setPhase("question");
   }
 
+  async function finish(updatedAnswers: Answers) {
+    setPhase("loading");
+
+    const clasificacion = classificationPromiseRef.current
+      ? await classificationPromiseRef.current
+      : undefined;
+
+    const finalResult = buildDiagnosticoResult(updatedAnswers, clasificacion);
+    setResult(finalResult);
+    trackEvent("diagnostico_complete", {
+      ia_stage: finalResult.stages.ia,
+      automatizacion_stage: finalResult.stages.automatizacion,
+      datos_stage: finalResult.stages.datos,
+      personas_stage: finalResult.stages.personas,
+      intervencion: finalResult.intervencion,
+    });
+    setPhase("result");
+  }
+
   function advance(updatedAnswers: Answers) {
     if (stepIndex + 1 >= totalSteps) {
-      const finalResult = buildDiagnosticoResult(updatedAnswers);
-      setResult(finalResult);
-      trackEvent("diagnostico_complete", {
-        ia_stage: finalResult.stages.ia,
-        automatizacion_stage: finalResult.stages.automatizacion,
-        datos_stage: finalResult.stages.datos,
-        personas_stage: finalResult.stages.personas,
-        intervencion: finalResult.intervencion,
-      });
-      setPhase("result");
+      void finish(updatedAnswers);
     } else {
       setStepIndex((i) => i + 1);
       setPhase("question");
@@ -63,6 +76,10 @@ export function DiagnosticoExperience() {
     const updated: Answers = { ...answers, [question.id]: value } as Answers;
     setAnswers(updated);
     trackEvent("diagnostico_step", { step: String(question.id) });
+
+    if (question.id === "tareaRepetitiva" && typeof value === "string") {
+      classificationPromiseRef.current = classifyTareaRemote(value);
+    }
 
     const delay = question.kind === "single" ? 300 : 0;
     window.setTimeout(() => {
@@ -112,6 +129,12 @@ export function DiagnosticoExperience() {
         {phase === "interstitial" && (
           <motion.div key="interstitial" {...fadeVariants} transition={{ duration: 0.4 }}>
             <InterstitialScreen text={interstitialText} onContinue={() => advance(answers)} />
+          </motion.div>
+        )}
+
+        {phase === "loading" && (
+          <motion.div key="loading" {...fadeVariants} transition={{ duration: 0.3 }}>
+            <LoadingScreen />
           </motion.div>
         )}
 
@@ -258,6 +281,19 @@ function QuestionScreen({
           ← Regresar
         </button>
       )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Cargando
+// ---------------------------------------------------------------------------
+
+function LoadingScreen() {
+  return (
+    <div className="flex flex-col items-center gap-4 py-20 text-center">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-ink/15 border-t-gold" />
+      <p className="text-sm font-medium text-ink/60">Analizando tus respuestas…</p>
     </div>
   );
 }

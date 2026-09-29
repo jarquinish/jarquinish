@@ -169,6 +169,13 @@ export const QUESTIONS: Question[] = [
 
 export type TaskClassification = "automatizable" | "asistible" | "humana" | "hibrida";
 
+export const VALID_CLASSIFICATIONS: TaskClassification[] = [
+  "automatizable",
+  "asistible",
+  "humana",
+  "hibrida",
+];
+
 const AUTOMATIZABLE_HINTS = [
   "reporte", "captur", "copiar", "pegar", "excel", "correo", "agend", "programa",
   "recordatorio", "seguimiento", "factura", "cotiza", "actualiza", "subir", "descarga",
@@ -195,6 +202,36 @@ export function classifyTarea(text: string): TaskClassification {
   if (a >= b && a >= h) return "automatizable";
   if (h > b) return "humana";
   return "asistible";
+}
+
+/**
+ * Clasifica la tarea repetitiva usando el endpoint de IA del sitio
+ * (/api/diagnostico/clasificar). Si la petición falla, tarda demasiado, o el
+ * sitio no tiene ANTHROPIC_API_KEY configurada, cae de vuelta a `classifyTarea`
+ * (heurística por palabras clave) para que la experiencia nunca se bloquee.
+ */
+export async function classifyTareaRemote(tarea: string): Promise<TaskClassification> {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 6000);
+
+    const response = await fetch("/api/diagnostico/clasificar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tarea }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+
+    if (!response.ok) throw new Error(`Respuesta ${response.status}`);
+    const data = await response.json();
+    if (VALID_CLASSIFICATIONS.includes(data?.classification)) {
+      return data.classification as TaskClassification;
+    }
+    throw new Error("Clasificación no reconocida");
+  } catch {
+    return classifyTarea(tarea);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -275,7 +312,10 @@ function clamp(value: number) {
   return Math.max(5, Math.min(95, Math.round(value)));
 }
 
-export function computeScores(answers: Answers): Record<Dimension, number> {
+export function computeScores(
+  answers: Answers,
+  clasificacionTarea?: TaskClassification
+): Record<Dimension, number> {
   const scores: Record<Dimension, number> = {
     ia: BASELINE,
     automatizacion: BASELINE,
@@ -287,7 +327,8 @@ export function computeScores(answers: Answers): Record<Dimension, number> {
     applyDelta(scores, Q2_WEIGHTS[tema]);
   }
   if (answers.tareaRepetitiva) {
-    applyDelta(scores, TAREA_WEIGHTS[classifyTarea(answers.tareaRepetitiva)]);
+    const clasificacion = clasificacionTarea ?? classifyTarea(answers.tareaRepetitiva);
+    applyDelta(scores, TAREA_WEIGHTS[clasificacion]);
   }
   if (answers.datos) applyDelta(scores, Q4_DATOS_WEIGHTS[answers.datos]);
   if (answers.iaUso) applyDelta(scores, Q5_IA_WEIGHTS[answers.iaUso]);
@@ -452,15 +493,20 @@ export type DiagnosticoResult = {
   clasificacionTarea: TaskClassification;
 };
 
-export function buildDiagnosticoResult(answers: Answers): DiagnosticoResult {
-  const scores = computeScores(answers);
+export function buildDiagnosticoResult(
+  answers: Answers,
+  clasificacionOverride?: TaskClassification
+): DiagnosticoResult {
+  const clasificacionTarea =
+    clasificacionOverride ??
+    (answers.tareaRepetitiva ? classifyTarea(answers.tareaRepetitiva) : "hibrida");
+  const scores = computeScores(answers, clasificacionTarea);
   const stages = {
     ia: stageFor(scores.ia),
     automatizacion: stageFor(scores.automatizacion),
     datos: stageFor(scores.datos),
     personas: stageFor(scores.personas),
   };
-  const clasificacionTarea = answers.tareaRepetitiva ? classifyTarea(answers.tareaRepetitiva) : "hibrida";
 
   return {
     scores,

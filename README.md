@@ -33,6 +33,7 @@ como *Environment Variables* del proyecto:
 | `LEADS_WEBHOOK_URL` | Recomendada | Endpoint (Zapier, Make, n8n o el webhook nativo de un CRM) al que se reenvía cada lead enviado desde los formularios. Sin esto, los leads solo quedan en los logs del servidor. |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Opcional | ID de medición de Google Analytics 4 (`G-XXXXXXX`). Sin esto, los eventos de conversión (`cta_charla_click`, `whatsapp_click`, `form_complete`, etc.) se registran solo en `dataLayer`, sin enviarse a GA. |
 | `NEXT_PUBLIC_SITE_URL` | Recomendada | URL pública del sitio (ej. `https://miguel-jarquin.com`), sin slash final. Se usa para que las imágenes de Open Graph/Twitter (generadas en `app/opengraph-image.tsx`) resuelvan a la URL real en vez de `localhost`. |
+| `ANTHROPIC_API_KEY` | Opcional | Habilita clasificación con IA real (Claude) de la respuesta abierta en `/diagnostico` (`app/api/diagnostico/clasificar`). Sin esto, esa pregunta se clasifica con una heurística de palabras clave — el diagnóstico funciona igual, solo cambia qué tan fino es ese matiz. |
 
 ## Deploy (Vercel)
 
