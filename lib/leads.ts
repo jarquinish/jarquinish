@@ -5,6 +5,7 @@ export type LeadType =
   | "taller"
   | "consultoria"
   | "marketing"
+  | "diagnostico"
   | "otro";
 
 export type LeadContact = {

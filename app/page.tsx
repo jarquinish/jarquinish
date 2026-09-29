@@ -77,6 +77,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Diagnóstico IA */}
+      <section className="border-t border-ink/10 bg-surface px-6 py-14">
+        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gold">
+              Diagnóstico gratuito · 3-5 minutos
+            </p>
+            <h2 className="mt-2 text-xl font-bold text-ink sm:text-2xl">
+              ¿Qué tan preparada está tu empresa para trabajar con IA?
+            </h2>
+            <p className="mt-2 max-w-md text-sm text-ink/60">
+              Una conversación breve para detectar oportunidades reales de IA y automatización en
+              tu negocio.
+            </p>
+          </div>
+          <Link
+            href="/diagnostico"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:opacity-90"
+          >
+            Hacer mi diagnóstico →
+          </Link>
+        </Reveal>
+      </section>
+
       {/* Speaker */}
       <section id="speaker" className="border-t border-ink/10 px-6 py-20">
         <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start">

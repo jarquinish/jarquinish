@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const NAV_LINKS = [
+  { href: "/diagnostico", label: "Diagnóstico IA" },
   { href: "/charlas", label: "Charlas" },
   { href: "/talleres", label: "Talleres" },
   { href: "/consultoria-ia", label: "Consultoría de IA" },

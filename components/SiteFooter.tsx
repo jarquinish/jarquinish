@@ -7,6 +7,9 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} Miguel Jarquín</p>
         <div className="flex flex-wrap items-center gap-6">
+          <Link href="/diagnostico" className="hover:text-gold">
+            Diagnóstico IA
+          </Link>
           <Link href="/charlas" className="hover:text-gold">
             Charlas
           </Link>

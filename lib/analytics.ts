@@ -8,11 +8,17 @@ export type AnalyticsEvent =
   | "cta_charla_click"
   | "cta_taller_click"
   | "cta_consultoria_click"
+  | "cta_diagnostico_click"
   | "whatsapp_click"
   | "form_start"
   | "form_complete"
   | "speaker_page_view"
-  | "consulting_page_view";
+  | "consulting_page_view"
+  | "diagnostico_page_view"
+  | "diagnostico_start"
+  | "diagnostico_step"
+  | "diagnostico_complete"
+  | "diagnostico_cta_click";
 
 export type AnalyticsPayload = Record<string, string | number | boolean | undefined>;
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 
 const PANEL_OPTIONS = [
+  { label: "Hacer mi diagnóstico gratis", href: "/diagnostico", event: "cta_diagnostico_click" as const },
   { label: "Contratar una charla", href: "/charlas", event: "cta_charla_click" as const },
   { label: "Cotizar un taller", href: "/talleres", event: "cta_taller_click" as const },
   { label: "Consultoría de IA", href: "/consultoria-ia", event: "cta_consultoria_click" as const },
