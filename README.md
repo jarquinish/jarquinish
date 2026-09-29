@@ -53,6 +53,8 @@ Cualquier otro hosting compatible con Next.js (Node 18+) funciona igual: `npm ru
 
 ## Pendientes conocidos
 
-- Diseño visual con la identidad de marca definitiva (paleta, tipografía, logo, fotografía).
 - Conectar `LEADS_WEBHOOK_URL` a un CRM real.
 - Definir `NEXT_PUBLIC_GA_MEASUREMENT_ID` si se usará GA4.
+- Definir `NEXT_PUBLIC_SITE_URL` si se conecta un dominio propio.
+- Configurar `ANTHROPIC_API_KEY` para activar clasificación con IA real en `/diagnostico` (opcional, cae a heurística sin ella).
+- Logos reales de marcas/organizaciones en el home (hoy son texto).

@@ -159,6 +159,16 @@ export default function HomePage() {
                 ))}
               </ol>
             </div>
+
+            <div className="relative mt-12 aspect-[3/1] w-full max-w-md overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/miguel/ai-jarquin-logo.jpg"
+                alt="AI Jarquín — Ideas que mueven personas"
+                fill
+                sizes="(min-width: 640px) 448px, 90vw"
+                className="object-cover"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
