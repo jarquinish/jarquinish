@@ -7,6 +7,20 @@ import { PageViewTracker } from "@/components/PageViewTracker";
 import { Reveal } from "@/components/motion/Reveal";
 import { ParallaxImage } from "@/components/motion/ParallaxImage";
 
+const temasIlustrados: Record<string, { src: string; width: number; height: number }> = {
+  "Inteligencia Artificial para potenciar ventas": { src: "/charlas/temas/potenciar-ventas.jpg", width: 492, height: 264 },
+  "IA aplicada al Marketing": { src: "/charlas/temas/marketing.jpg", width: 489, height: 264 },
+  "IA aplicada al sector inmobiliario": { src: "/charlas/temas/sector-inmobiliario.jpg", width: 493, height: 264 },
+  "Marca Personal + Inteligencia Artificial": { src: "/charlas/temas/marca-personal-ia.jpg", width: 492, height: 227 },
+  "Marketing y construcción de marca": { src: "/charlas/temas/construccion-marca.jpg", width: 489, height: 227 },
+  "DATA Driven Marketing": { src: "/charlas/temas/data-driven-marketing.jpg", width: 493, height: 227 },
+  "El futuro del marketing": { src: "/charlas/temas/futuro-marketing.jpg", width: 492, height: 220 },
+  "Inteligencia Artificial para equipos comerciales": { src: "/charlas/temas/equipos-comerciales.jpg", width: 489, height: 220 },
+  "Automatización y nuevas formas de trabajar": { src: "/charlas/temas/automatizacion.jpg", width: 493, height: 220 },
+  "Customer Experience": { src: "/charlas/temas/customer-experience.jpg", width: 742, height: 217 },
+  "Innovación y transformación digital": { src: "/charlas/temas/transformacion-digital.jpg", width: 743, height: 217 },
+};
+
 const galleryPhotos = [
   { src: "/charlas/charla-03-presentando-ia.jpg", alt: "Miguel Jarquín presentando sobre Inteligencia Artificial" },
   { src: "/charlas/charla-05-presentando.jpg", alt: "Miguel Jarquín presentando en conferencia de SOC Asesores" },
@@ -49,22 +63,31 @@ export default function CharlasPage() {
 
       {/* Temas */}
       <section className="border-t border-ink/10 px-6 py-16">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-5xl">
           <Reveal>
             <h2 className="text-2xl font-bold uppercase text-ink">Temáticas posibles</h2>
           </Reveal>
-          <Reveal delay={0.08}>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {charlasTemas.map((tema) => (
-                <li
-                  key={tema}
-                  className="rounded-lg border border-ink/10 bg-surface px-4 py-3 text-sm text-ink/80 transition hover:-translate-y-0.5 hover:shadow-md"
-                >
-                  {tema}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {charlasTemas.map((tema, i) => {
+              const ilustracion = temasIlustrados[tema];
+              if (!ilustracion) return null;
+              return (
+                <Reveal key={tema} delay={i * 0.05} scale={0.96}>
+                  <div className="overflow-hidden rounded-2xl border border-ink/10 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <Image
+                      src={ilustracion.src}
+                      alt={tema}
+                      width={ilustracion.width}
+                      height={ilustracion.height}
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="h-auto w-full"
+                    />
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+          <p className="mt-3 text-center text-xs text-ink/40">Ilustraciones generadas con IA</p>
         </div>
       </section>
 
