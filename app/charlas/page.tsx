@@ -43,14 +43,16 @@ export default function CharlasPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden px-6 py-28 sm:py-40">
-        <ParallaxImage
-          src="/charlas/charla-07-auditorio-masivo.jpg"
-          alt="Miguel Jarquín presentando ante un auditorio masivo"
-          priority
-          className="absolute inset-0"
-          strength={40}
-        />
-        <div aria-hidden className="absolute inset-0 bg-paper/75" />
+        <div className="absolute inset-0">
+          <ParallaxImage
+            src="/charlas/charla-07-auditorio-masivo.jpg"
+            alt="Miguel Jarquín presentando ante un auditorio masivo"
+            priority
+            className="h-full w-full"
+            strength={40}
+          />
+        </div>
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-paper/95 via-paper/70 to-paper/50" />
         <Reveal className="relative mx-auto max-w-4xl text-center">
           <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-5xl">
             Charlas para entender

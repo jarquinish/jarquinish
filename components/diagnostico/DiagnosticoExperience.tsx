@@ -98,7 +98,17 @@ export function DiagnosticoExperience() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
+    <div className="relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[700px]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 15% 20%, rgba(34,199,214,0.20), transparent 45%), radial-gradient(circle at 85% 15%, rgba(57,119,246,0.14), transparent 40%), radial-gradient(circle 1.5px, rgba(243,241,235,0.08) 1.5px, transparent 1.5px)",
+          backgroundSize: "auto, auto, 28px 28px",
+        }}
+      />
+      <div className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
       {phase === "question" && (
         <div className="mb-10 h-1 w-full overflow-hidden rounded-full bg-ink/10">
           <div
@@ -144,6 +154,7 @@ export function DiagnosticoExperience() {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </div>
   );
 }

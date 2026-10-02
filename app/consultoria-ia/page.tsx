@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   consultingFlow,
   consultingMethodology,
@@ -6,7 +7,6 @@ import {
   consultingSolutions,
 } from "@/data/services";
 import { ServiceCta } from "@/components/ServiceCta";
-import { ConsultingWizard } from "@/components/ConsultingWizard";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { toolStack } from "@/data/profile";
@@ -41,7 +41,7 @@ export default function ConsultoriaIAPage() {
             <div className="mt-8">
               <ServiceCta
                 variant="consultoria"
-                href="#diagnostico"
+                href="/diagnostico"
                 label="ANALICEMOS TU CASO →"
                 placement="consultoria_hero"
               />
@@ -173,14 +173,26 @@ export default function ConsultoriaIAPage() {
         </div>
       </section>
 
-      {/* Funnel de diagnóstico */}
-      <section id="diagnostico" className="border-t border-ink/10 bg-surface px-6 py-20">
-        <Reveal className="mx-auto max-w-2xl">
-          <h2 className="text-center text-2xl font-bold uppercase text-ink sm:text-3xl">
+      {/* Diagnóstico */}
+      <section className="border-t border-ink/10 bg-surface px-6 py-20">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-wide text-gold">
+            Diagnóstico gratuito · 3-5 minutos
+          </p>
+          <h2 className="mt-3 text-2xl font-bold uppercase text-ink sm:text-3xl">
             ¿Dónde podría ayudarte la IA?
           </h2>
+          <p className="mt-4 text-ink/70">
+            Responde una conversación breve y recibe un mapa personalizado de oportunidades de IA
+            y automatización para tu empresa.
+          </p>
           <div className="mt-8">
-            <ConsultingWizard />
+            <Link
+              href="/diagnostico"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-semibold uppercase tracking-wide text-paper transition hover:opacity-90"
+            >
+              Hacer mi diagnóstico →
+            </Link>
           </div>
         </Reveal>
       </section>
