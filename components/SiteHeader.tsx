@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const NAV_LINKS = [
@@ -17,8 +18,15 @@ export function SiteHeader() {
   return (
     <header className="relative border-b border-ink/10 bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <Link href="/" className="text-sm font-bold uppercase tracking-wide text-ink" onClick={() => setOpen(false)}>
-          Miguel Jarquín
+        <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
+          <Image
+            src="/miguel/ai-jarquin-logo-mark.png"
+            alt="AI Jarquín"
+            width={900}
+            height={158}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </Link>
         <nav className="hidden gap-8 text-sm font-medium text-ink/70 md:flex">
           {NAV_LINKS.map((link) => (
