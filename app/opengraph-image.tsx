@@ -14,15 +14,15 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#0b0b0c",
-          color: "#faf9f7",
+          backgroundColor: "#0A0D0F",
+          color: "#F3F1EB",
           fontFamily: "system-ui",
         }}
       >
         <div style={{ display: "flex", fontSize: 76, fontWeight: 700, textTransform: "uppercase", letterSpacing: -2 }}>
-          Miguel&nbsp;<span style={{ color: "#ff5a1f" }}>Jarquín</span>
+          Miguel&nbsp;<span style={{ color: "#B89B6A", fontStyle: "italic" }}>Jarquín</span>
         </div>
-        <div style={{ marginTop: 28, fontSize: 30, color: "rgba(250,249,247,0.7)" }}>
+        <div style={{ marginTop: 28, fontSize: 30, color: "rgba(243,241,235,0.7)" }}>
           Charlas · Talleres · Consultoría de IA
         </div>
       </div>

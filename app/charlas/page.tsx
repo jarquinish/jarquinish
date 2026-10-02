@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   title: "Charlas y conferencias",
   description:
     "Charlas y conferencias sobre inteligencia artificial, marketing y marca personal para empresas, asociaciones, universidades y eventos.",
+  alternates: { canonical: "/charlas" },
 };
 
 export default function CharlasPage() {

@@ -17,6 +17,7 @@ export function generateMetadata({ params }: Props): Metadata {
   return {
     title: taller.nombre,
     description: taller.objetivo,
+    alternates: { canonical: `/talleres/${taller.slug}` },
   };
 }
 

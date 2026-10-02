@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Contacto",
   description:
     "Cuéntame sobre tu charla, taller o proyecto de inteligencia artificial y te responderé con una propuesta.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function ContactoPage() {

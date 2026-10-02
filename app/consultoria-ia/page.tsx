@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "Consultoría de Inteligencia Artificial",
   description:
     "Identificamos, diseñamos e implementamos oportunidades reales de inteligencia artificial en marketing, ventas, CRM y experiencia de cliente.",
+  alternates: { canonical: "/consultoria-ia" },
 };
 
 export default function ConsultoriaIAPage() {

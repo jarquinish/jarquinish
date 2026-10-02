@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Aviso de privacidad",
   description: "Aviso de privacidad para los datos que se recopilan a través de este sitio.",
+  alternates: { canonical: "/aviso-de-privacidad" },
 };
 
 export default function AvisoDePrivacidadPage() {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
@@ -15,6 +16,10 @@ import {
   teachingInstitutions,
 } from "@/data/profile";
 import { CartIcon, ChartIcon, MegaphoneIcon, PeopleIcon, TargetIcon } from "@/components/icons";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const EXPERTISE_ICONS: Record<string, typeof TargetIcon> = {
   "Estrategia de marca": TargetIcon,

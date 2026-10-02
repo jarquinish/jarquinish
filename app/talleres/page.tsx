@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Talleres y capacitaciones",
   description:
     "Talleres prácticos de inteligencia artificial, marketing y automatización para equipos comerciales, marketing, inmobiliarios y asesores financieros.",
+  alternates: { canonical: "/talleres" },
 };
 
 export default function TalleresPage() {
