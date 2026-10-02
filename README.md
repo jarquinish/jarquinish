@@ -34,6 +34,9 @@ como *Environment Variables* del proyecto:
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Opcional | ID de medición de Google Analytics 4 (`G-XXXXXXX`). Sin esto, los eventos de conversión (`cta_charla_click`, `whatsapp_click`, `form_complete`, etc.) se registran solo en `dataLayer`, sin enviarse a GA. |
 | `NEXT_PUBLIC_SITE_URL` | Recomendada | URL pública del sitio (ej. `https://miguel-jarquin.com`), sin slash final. Se usa para que las imágenes de Open Graph/Twitter (generadas en `app/opengraph-image.tsx`) resuelvan a la URL real en vez de `localhost`. |
 | `ANTHROPIC_API_KEY` | Opcional | Habilita clasificación con IA real (Claude) de la respuesta abierta en `/diagnostico` (`app/api/diagnostico/clasificar`). Sin esto, esa pregunta se clasifica con una heurística de palabras clave — el diagnóstico funciona igual, solo cambia qué tan fino es ese matiz. |
+| `RESEND_API_KEY` | Recomendada | Habilita el envío de cada lead por correo vía [Resend](https://resend.com). Sin esto, `submitLead()` no manda email (solo reenvía al webhook, si está configurado, o deja el lead en logs). |
+| `LEADS_EMAIL_TO` | Opcional | A qué correo llegan los leads. Por defecto usa el email de `profile.contact` en `data/profile.ts`. |
+| `LEADS_EMAIL_FROM` | Opcional | Remitente de los correos de leads (`"Nombre <email>"`). Por defecto usa el dominio de pruebas compartido de Resend, válido solo mientras no se verifique un dominio propio. |
 
 ## Deploy (Vercel)
 
@@ -57,4 +60,5 @@ Cualquier otro hosting compatible con Next.js (Node 18+) funciona igual: `npm ru
 - Definir `NEXT_PUBLIC_GA_MEASUREMENT_ID` si se usará GA4.
 - Definir `NEXT_PUBLIC_SITE_URL` si se conecta un dominio propio.
 - Configurar `ANTHROPIC_API_KEY` para activar clasificación con IA real en `/diagnostico` (opcional, cae a heurística sin ella).
+- Configurar `RESEND_API_KEY` para recibir los leads por correo.
 - Logos reales de marcas/organizaciones en el home (hoy son texto).
